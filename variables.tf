@@ -1,7 +1,7 @@
 variable "cluster_name" {
   description = "Nome do Cluster"
   type        = string
-  default     = "cluster-example"
+  default     = "nataliagranato"
 }
 
 variable "kubernetes_version" {
@@ -13,13 +13,13 @@ variable "kubernetes_version" {
 variable "cluster_description" {
   description = "Descrição do Cluster"
   type        = string
-  default     = "Cluster Example"
+  default     = "Um cluster de Kubernetes gerenciado pela Magalu Cloud."
 }
 
 variable "nodepool_name" {
   description = "Nome do Nodepool"
   type        = string
-  default     = "node1"
+  default     = "nataliagranato"
 }
 
 variable "nodepool_replicas" {
