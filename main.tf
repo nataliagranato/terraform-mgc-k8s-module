@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    mgc = {
-      source = "magalucloud/mgc"
-    }
-  }
-}
-
 # Create a Cluster with nodepool
 resource "mgc_kubernetes_cluster" "cluster_with_nodepool" {
   name                 = var.cluster_name
