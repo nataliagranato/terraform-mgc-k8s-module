@@ -14,8 +14,8 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_local"></a> [local](#provider\_local) | 2.5.1 |
-| <a name="provider_mgc"></a> [mgc](#provider\_mgc) | n/a |
-| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+| <a name="provider_mgc"></a> [mgc](#provider\_mgc) | 0.21.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.12.0 |
 
 ## Modules
 
@@ -29,6 +29,7 @@ No modules.
 | [mgc_kubernetes_cluster.cluster_with_nodepool](https://registry.terraform.io/providers/magalucloud/mgc/latest/docs/resources/kubernetes_cluster) | resource |
 | [mgc_kubernetes_nodepool.gp1_small](https://registry.terraform.io/providers/magalucloud/mgc/latest/docs/resources/kubernetes_nodepool) | resource |
 | [time_sleep.wait_15_minutes](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
+| [time_sleep.wait_for_cluster](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [mgc_kubernetes_cluster_kubeconfig.cluster](https://registry.terraform.io/providers/magalucloud/mgc/latest/docs/data-sources/kubernetes_cluster_kubeconfig) | data source |
 
 ## Inputs
