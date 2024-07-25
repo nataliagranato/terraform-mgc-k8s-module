@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    mgc = {
-      source = "magalucloud/mgc"
-    }
-  }
-}
-
 # Create a Cluster with nodepool
 resource "mgc_kubernetes_cluster" "cluster_with_nodepool" {
   name                 = var.cluster_name
@@ -38,4 +30,23 @@ resource "mgc_kubernetes_nodepool" "gp1_small" {
     min_replicas = 1
     max_replicas = 3
   }
+}
+
+# Timer para esperar o cluster ficar ativo
+resource "time_sleep" "wait_for_cluster" {
+  depends_on      = [mgc_kubernetes_cluster.cluster_with_nodepool]
+  create_duration = "10m" # Ajuste o tempo conforme necessário
+}
+
+# Pegar o kubeconfig do cluster usando o output do cluster_id
+data "mgc_kubernetes_cluster_kubeconfig" "cluster" {
+  depends_on = [time_sleep.wait_for_cluster]
+  cluster_id = mgc_kubernetes_cluster.cluster_with_nodepool.id
+}
+
+# Salvar o kubeconfig em um arquivo local
+resource "local_file" "kubeconfig" {
+  provider = local
+  content  = data.mgc_kubernetes_cluster_kubeconfig.cluster.kubeconfig
+  filename = "${path.module}/kubeconfig.yaml"
 }
